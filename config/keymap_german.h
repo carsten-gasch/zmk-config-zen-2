@@ -14,6 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+//source: https://github.com/tyalie/k380-zmk-config
+
 #pragma once
 
 #include <behaviors.dtsi>
