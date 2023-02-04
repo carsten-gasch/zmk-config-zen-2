@@ -161,3 +161,5 @@
 #define DE_PIPE RA(DE_LABK) // |
 #define MAC_PIPE RA(MAC_LABK) // | (mac)
 #define DE_MICR RA(DE_M)    // µ
+
+// clang-format on
