@@ -39,5 +39,12 @@
       bindings = <&kp DE_SEMI>, <&kp DE_COLN>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+
+/*sticky keys = one shot mod*/
+    &sk {
+        release-after-ms = <2000>;
+        quick-release;
+        /delete-property/ ignore-modifiers;
+    };
   };
 };

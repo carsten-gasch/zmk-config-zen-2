@@ -1,6 +1,18 @@
 #include "keymap_german.h"
 #include "mod_morphs.dtsi"
 
+#define _L_QWE 0
+#define _L_COL 1
+
+#define _L_NAV 2
+#define _L_SYM 3
+#define _L_NUM 4
+#define _L_SET 5
+#define _L_FUN 6
+
+#define C_TAB LC(TAB)
+#define CS_TAB LC(LS(TAB))
+
 / {
   chosen {
     zmk,matrix_transform = &default_transform;
@@ -11,20 +23,54 @@
         keymap {
                 compatible = "zmk,keymap";
 
-                default_layer {
+                qwerty_layer {
                         label = "QWERTY";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp TAB   &kp DE_Q &kp DE_W &kp DE_E &kp DE_R &kp DE_T       &kp DE_Y &kp DE_U  &kp DE_I  &kp DE_O   &kp DE_P    &kp BSPC
-   &kp LCTRL &kp DE_A &kp DE_S &kp DE_D &kp DE_F &kp DE_G       &kp DE_H &kp DE_J  &kp DE_K  &kp DE_L   &semicol    &quote
-   &kp LSHFT &kp DE_Z &kp DE_X &kp DE_C &kp DE_V &kp DE_B       &kp DE_N &kp DE_M  &clabk    &drabk     &sques     &kp ESC
-                                  &kp LGUI &mo 1 &kp SPACE      &kp RET &mo 2 &kp RALT
+// | ESC  |  Q  |  W  |  E  |  R  |  T  |      #  |  Y  |  U  |  I  |  O  |  P  | BKSP |
+// | SHFT |  A  |  S  |  D  |  F  |  G  |      #  |  H  |  J  |  K  |  L  |  ;  |  '   |
+// | TAB  |  Z  |  X  |  C  |  V  |  B  |      #  |  N  |  M  |  ,  |  .  |  /  | RET  |
+//                    |     |     | nav_spc |  #  |     |     |     |
+                        bindings = <                                                                                            
+   &kp ESC   &kp DE_Q &kp DE_W &kp DE_E &kp DE_R &kp DE_T       &kp DE_Y &kp DE_U  &kp DE_I  &kp DE_O   &kp DE_P    &kp BSPC
+   &kp LSHFT &kp DE_A &kp DE_S &kp DE_D &kp DE_F &kp DE_G       &kp DE_H &kp DE_J  &kp DE_K  &kp DE_L   &semicol    &kp RSHFT
+   &kp TAB   &kp DE_Z &kp DE_X &kp DE_C &kp DE_V &kp DE_B       &kp DE_N &kp DE_M  &clabk    &drabk     &sques      &kp ENTER
+                               &none    &none &lt _L_NAV SPACE  &none    &none     &none
                         >;
                 };
+
+
+                colemak_layer {
+                        label = "COLEMAK";
+// -----------------------------------------------------------------------------------------
+// |  TAB |  Q  |  W  |  F  |  P  |  B  |  #  |  J  |  L  |  U  |  Y  |  '  | BKSP |
+// | CTRL |  A  |  R  |  S  |  T  |  G  |  #  |  M  |  N  |  E  |  I  |  O  | SHFT |
+// | SHFT |  Z  |  X  |  C  |  D  |  V  |  #  |  K  |  H  |  ,  |  .  |  /  | ESC  |
+//                    |     |     | nav_spc |  #  |     |     |     |
+                        bindings = <
+   &kp ESC   &kp DE_Q &kp DE_W &kp DE_F &kp DE_P &kp DE_B       &kp DE_J &kp DE_L  &kp DE_U  &kp DE_Y   &quote    &kp BSPC
+   &kp LSHFT &kp DE_A &kp DE_R &kp DE_S &kp DE_T &kp DE_G       &kp DE_M &kp DE_N  &kp DE_E  &kp DE_I   &kp DE_O  &kp RSHFT
+   &kp TAB   &kp DE_Z &kp DE_X &kp DE_C &kp DE_D &kp DE_V       &kp DE_K &kp DE_H  &clabk    &drabk     &sques    &kp ENTER
+                               &none    &none &lt _L_NAV SPACE  &none    &none     &none
+                        >;
+                };
+
+
+navigation_layer {
+    label = "NAVIGATION";
+// -----------------------------------------------------------------------------------------
+// |  TAB |  Q  |  W  |  F  |  P  |  B  |  #  |  J  |  L  |  U  |  Y  |  '  | BKSP |
+// | CTRL |  A  |  R  |  S  |  T  |  G  |  #  |  M  |  N  |  E  |  I  |  O  | SHFT |
+// | SHFT |  Z  |  X  |  C  |  D  |  V  |  #  |  K  |  H  |  ,  |  .  |  /  | ESC  |
+//                    | GUI | LWR | SPC |  #  | ENT | RSE | ALT |
+bindings = <
+   &none &none      &none     &kp CS_TAB &kp C_TAB   &none          &kp HOME &kp PGDN &kp PGUP &kp END   &none     &none
+   &none &sk LGUI   &sk LALT  &sk LCTRL  &sk LSHFT   &none          &kp LEFT &kp DOWN &kp UP   &kp RIGHT &none     &none
+   &none &kp K_UNDO &kp K_CUT &kp K_COPY &kp K_PASTE &kp K_REDO     &none    &none    &none    &none     &kp RCTRL &none
+                                   &none &none       &none          &none    &none    &none
+>;
+};
+
+
                 lower_layer {
                         label = "NUMBER";
 // -----------------------------------------------------------------------------------------
@@ -40,18 +86,18 @@
                         >;
                 };
 
-                raise_layer {
-                        label = "SYMBOL";
+                template_layer {
+                        label = "TEMPLATE";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |  TAB |  Q  |  W  |  F  |  P  |  B  |  #  |  J  |  L  |  U  |  Y  |  '  | BKSP |
+// | CTRL |  A  |  R  |  S  |  T  |  G  |  #  |  M  |  N  |  E  |  I  |  O  | SHFT |
+// | SHFT |  Z  |  X  |  C  |  D  |  V  |  #  |  K  |  H  |  ,  |  .  |  /  | ESC  |
+//                    | GUI | LWR | SPC |  #  | ENT | RSE | ALT |
                         bindings = <
-   &kp  TAB  &kp DE_EXCL &kp DE_AT &kp DE_HASH &kp DE_DLR &kp DE_PERC   &kp DE_CIRC  &kp DE_AMPS  &kp DE_STAR &kp DE_LPAR &kp DE_RPAR &kp BSPC
-   &kp LCTRL &trans      &trans    &trans      &trans      &trans       &kp DE_MINS  &kp DE_EQL   &kp DE_LBKT &kp DE_RBKT &kp DE_BSLH &kp DE_GRV
-   &kp LSHFT &trans      &trans    &trans      &trans      &trans       &kp DE_UNDS  &kp DE_PLUS  &kp DE_LBRC &kp DE_RBRC &kp DE_PIPE &kp DE_TILD
-                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &none   &none   &none   &none    &none    &none              &none    &none    &none   &none   &none   &none
+   &none   &none   &none   &none    &none    &none              &none    &none    &none   &none   &none   &none
+   &none   &none   &none   &none    &none    &none              &none    &none    &none   &none   &none   &none
+                           &none    &none    &none              &none    &none    &none
                         >;
                 };
         };
