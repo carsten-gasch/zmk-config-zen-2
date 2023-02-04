@@ -13,6 +13,13 @@
 #define C_TAB LC(TAB)
 #define CS_TAB LC(LS(TAB))
 
+/*sticky keys = one shot mod*/
+&sk {
+    release-after-ms = <2000>;
+    quick-release;
+    /delete-property/ ignore-modifiers;
+};
+
 / {
   chosen {
     zmk,matrix_transform = &default_transform;
