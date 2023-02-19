@@ -60,7 +60,7 @@ colemak_layer {
 //                    |     |     | nav_spc |  #  |     |     |     |
 bindings = <
    &kp TAB   &kp DE_Q &kp DE_W &kp DE_F &kp DE_P &kp DE_B               &kp DE_J &kp DE_L  &kp DE_U  &kp DE_Y   &quote    &kp BSPC
-   &kp ESC   &kp DE_A &kp DE_R &kp DE_S &kp DE_T &kp DE_G               &kp DE_M &kp DE_N  &kp DE_E  &kp DE_I   &kp DE_O  &mo _L_SET
+   &kp ESC   &kp DE_A &kp DE_R &kp DE_S &kp DE_T &kp DE_G               &kp DE_M &kp DE_N  &kp DE_E  &kp DE_I   &kp DE_O  &none
    &kp LSHFT &kp DE_Z &kp DE_X &kp DE_C &kp DE_D &kp DE_V               &kp DE_K &kp DE_H  &clabk    &drabk     &sques    &kp ENTER
                                &none    &mo _L_NUM &lt _L_NAV SPACE     &kp RSHFT &kp _L_SYM &none
 >;
@@ -120,7 +120,7 @@ function_layer {
 // | SHFT |  Z  |  X  |  C  |  D  |  V  |  #  |  K  |  H  |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |  #  | ENT | RSE | ALT |
 bindings = <
-   &none   &none      &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &none        &kp F12  &kp F7   &kp F8  &kp F9  &none   &none
+   &none   &none      &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &none        &kp F12  &kp F7   &kp F8  &kp F9  &none   &mo _L_SET
    &none   &sk LGUI   &sk LALT     &sk LCTRL  &sk LSHFT    &none        &kp F11  &kp F6   &kp F5  &kp F6  &none   &none
    &none   &kp K_UNDO &kp K_CUT    &kp K_COPY &kp K_PASTE  &kp K_REDO   &kp F10  &kp F1   &kp F2  &kp F3  &none   &none
                                    &none      &none        &kp SPACE    &kp RSHFT &none  &none
