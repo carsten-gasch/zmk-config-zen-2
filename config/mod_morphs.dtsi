@@ -39,5 +39,85 @@
       bindings = <&kp DE_SEMI>, <&kp DE_COLN>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+    
+    oneexcl: one_excl {
+      compatible = "zmk,behavior-mod-morph";
+      label = "ONE_EXCL";
+      #binding-cells = <0>;
+      bindings = <&kp N1>, <&kp DE_EXCL>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    
+    twoat: two_at {
+      compatible = "zmk,behavior-mod-morph";
+      label = "TWO_AT";
+      #binding-cells = <0>;
+      bindings = <&kp N2>, <&kp DE_AT>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    
+    threehash: three_hash {
+      compatible = "zmk,behavior-mod-morph";
+      label = "THREE_HASH";
+      #binding-cells = <0>;
+      bindings = <&kp N3>, <&kp DE_HASH>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    
+    fourdlr: four_dollar {
+      compatible = "zmk,behavior-mod-morph";
+      label = "FOUR_DOLLAR";
+      #binding-cells = <0>;
+      bindings = <&kp N4>, <&kp DE_DLR>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    
+    fiveperc: five_perc {
+      compatible = "zmk,behavior-mod-morph";
+      label = "FIVE_PERC";
+      #binding-cells = <0>;
+      bindings = <&kp N5>, <&kp DE_PERC>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    
+    sixcirc: six_circ {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SIX_CIRC";
+      #binding-cells = <0>;
+      bindings = <&kp N6>, <&kp DE_CIRC>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    
+    sevenamp: seven_amp {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SEVEN_AMP";
+      #binding-cells = <0>;
+      bindings = <&kp N7>, <&kp DE_AMPS>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    
+    eightstar: eight_star {
+      compatible = "zmk,behavior-mod-morph";
+      label = "EIGHT_STAR";
+      #binding-cells = <0>;
+      bindings = <&kp N8>, <&kp DE_STAR>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    
+    ninelpar: nine_lpar {
+      compatible = "zmk,behavior-mod-morph";
+      label = "NINE_LPAR";
+      #binding-cells = <0>;
+      bindings = <&kp N9>, <&kp DE_LPAR>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    
+    zerorpar: zero_rpar {
+      compatible = "zmk,behavior-mod-morph";
+      label = "ZERO_RPAR";
+      #binding-cells = <0>;
+      bindings = <&kp N0>, <&kp DE_RPAR>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
   };
 };
